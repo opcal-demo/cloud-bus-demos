@@ -1,0 +1,7 @@
+
+spring:
+  rabbitmq:
+    addresses: ${TC_RABBITMQ_ADDRESSES}
+    username: ${TC_RABBITMQ_USER}
+    password: ${TC_RABBITMQ_PASSWORD}
+    virtual-host: ${TC_RABBITMQ_VHOST}

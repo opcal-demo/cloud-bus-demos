@@ -1,0 +1,16 @@
+dependencies: /root/workspace/opcal-commons-demo-updates/opcal-commons-demo/ci/maven/dependencies.properties
+update-reports:
+  - /root/workspace/opcal-commons-demo-updates/opcal-commons-demo/target/site/property-updates-aggregate-report.html
+parent-reports:
+  - /root/workspace/opcal-commons-demo-updates/opcal-commons-demo/target/site/parent-updates-report.html
+version-registers:
+  - property-name: opcal-cloud-starter-parent.version
+    update-policy: INCREMENTAL
+    group-id: xyz.opcal.cloud
+    artifact-id: opcal-cloud-starter-parent
+  - property-name: flatten-maven-plugin.version
+    update-policy: LATEST
+  - property-name: versions-maven-plugin.version
+    update-policy: LATEST
+  
+  

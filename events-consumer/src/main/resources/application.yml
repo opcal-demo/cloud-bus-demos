@@ -1,0 +1,17 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    bus:
+      id: ${spring.application.name}:${spring.profiles.active}:${random.value}
+      trace:
+        enabled: true
+  rabbitmq:
+    addresses: rabbitmq-server-0.rabbitmq-nodes.opcal-system.svc.cluster.local:5672,rabbitmq-server-1.rabbitmq-nodes.opcal-system.svc.cluster.local:5672,rabbitmq-server-2.rabbitmq-nodes.opcal-system.svc.cluster.local:5672
+    username: springbus
+    password: ua#opc33
+    virtual-host: /spring
