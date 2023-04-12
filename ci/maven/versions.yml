@@ -5,7 +5,7 @@ parent-reports:
   - /root/workspace/cloud-bus-demos-updates/cloud-bus-demos/target/site/parent-updates-report.html
 version-registers:
   - property-name: opcal-cloud-starter-parent.version
-    update-policy: INCREMENTAL
+    update-policy: LATEST
     group-id: xyz.opcal.cloud
     artifact-id: opcal-cloud-starter-parent
   - property-name: flatten-maven-plugin.version
