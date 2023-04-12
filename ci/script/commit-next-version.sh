@@ -14,7 +14,7 @@ git tag -a ${TAG_NAME} -m "Release Tag ${RELEASE_VERSION}"
 git push origin ${TAG_NAME}
 
 # next version
-${SCRIPT_DIR_PATH}/next-version.sh -${VERSION_DIRECTION:-n}
+${SCRIPT_DIR_PATH}/next-version.sh -${VERSION_DIRECTION:-s}
 
 ${SCRIPT_DIR_PATH}/clean-pom.sh
 
