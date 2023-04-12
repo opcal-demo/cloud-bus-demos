@@ -11,7 +11,7 @@
 	<packaging>pom</packaging>
 	
 	<properties>
-    <revision>1.0.0-SNAPSHOT</revision>
+    <revision>1.1.0-SNAPSHOT</revision>
     <java.version>17</java.version>
     <flatten-maven-plugin.version>1.4.1</flatten-maven-plugin.version>
     <versions-maven-plugin.version>2.15.0</versions-maven-plugin.version>
