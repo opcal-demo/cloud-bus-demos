@@ -8,9 +8,4 @@ version-registers:
     update-policy: LATEST
     group-id: xyz.opcal.cloud
     artifact-id: opcal-cloud-starter-parent
-  - property-name: flatten-maven-plugin.version
-    update-policy: LATEST
-  - property-name: versions-maven-plugin.version
-    update-policy: LATEST
-  
   
