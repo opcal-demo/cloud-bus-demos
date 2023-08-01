@@ -1,8 +1,8 @@
-dependencies: /root/workspace/cloud-bus-demos-updates/cloud-bus-demos/ci/maven/dependencies.properties
+dependencies: #{#WORKSPACE}/ci/maven/dependencies.properties
 update-reports:
-  - /root/workspace/cloud-bus-demos-updates/cloud-bus-demos/target/site/property-updates-aggregate-report.html
+  - #{#WORKSPACE}/target/site/property-updates-aggregate-report.html
 parent-reports:
-  - /root/workspace/cloud-bus-demos-updates/cloud-bus-demos/target/site/parent-updates-report.html
+  - #{#WORKSPACE}/target/site/parent-updates-report.html
 version-registers:
   - property-name: opcal-cloud-starter-parent.version
     update-policy: LATEST
