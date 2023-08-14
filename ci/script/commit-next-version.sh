@@ -23,4 +23,6 @@ NEXT_DEVELOPMENT_VERSION=$(cat /tmp/NEXT_DEVELOPMENT_VERSION)
 # commit
 git add .
 git commit -m "Next development version (${NEXT_DEVELOPMENT_VERSION})"
-git push
+
+# skip gitlab ci pipeline for next development version update
+git push -o ci.skip
