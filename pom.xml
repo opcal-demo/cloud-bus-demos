@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>xyz.opcal.cloud</groupId>
 		<artifactId>opcal-cloud-starter-parent</artifactId>
-		<version>3.2.2.0</version>
+		<version>3.2.3.0</version>
 	</parent>
 	<groupId>xyz.opcal.demo</groupId>
 	<artifactId>cloud-bus-demos</artifactId>
