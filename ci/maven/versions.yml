@@ -1,8 +1,10 @@
 dependencies: #{#WORKSPACE}/ci/maven/dependencies.properties
 update-reports:
   - #{#WORKSPACE}/target/site/property-updates-aggregate-report.html
+  - #{#WORKSPACE}/target/reports/property-updates-aggregate-report.html
 parent-reports:
   - #{#WORKSPACE}/target/site/parent-updates-report.html
+  - #{#WORKSPACE}/target/reports/parent-updates-report.html
 version-registers:
   - property-name: opcal-cloud-starter-parent.version
     update-policy: LATEST
