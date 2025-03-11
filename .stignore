@@ -1,8 +1,0 @@
-.git
-.classpath
-.project
-.settings
-.DS_Store
-.flattened-pom.xml
-**/target/**.jar
-**/target/**.class

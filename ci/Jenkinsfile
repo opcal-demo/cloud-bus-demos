@@ -1,0 +1,68 @@
+pipeline {
+    agent {
+        kubernetes {
+            cloud 'kubernetes'
+            inheritFrom 'dind-jdk-17-build'
+        }
+    }
+
+    stages {
+        stage('Validation') {
+            steps {
+                script {
+//                    sh 'printenv'
+                    skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
+                    echo "${skipCi}"
+                    echo "${env.TAG_NAME}"
+                    if (skipCi == 0 && env.TAG_NAME == null) {
+                        echo "Skipping this pipeline by commit message mark!"
+                        currentBuild.result = "ABORTED"
+                        throw new org.jenkinsci.plugins.workflow.steps.FlowInterruptedException(hudson.model.Result.ABORTED)
+                    } else {
+                        echo "pipeline build..."
+                    }
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                cache(caches: [
+                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.m2'),
+                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/var/cache/docker')
+                ],
+                        defaultBranch: 'main',
+                        maxCacheSize: 0) {
+                    container("dind-jdk-17") {
+                        script {
+                            sh '''
+                                if [ -f /var/cache/docker/docker.tar.gz ]; then
+                                    ls -la /var/cache/docker/docker.tar.gz
+                                    tar -xzf /var/cache/docker/docker.tar.gz -C /var/lib/docker/
+                                fi
+                            '''
+                            sh 'start-docker.sh'
+                            sh 'ls /var/run/docker.sock'
+                            sh 'docker ps'
+                            sh './mvnw -U clean package'
+                            sh 'docker image prune -f'
+                            sh 'supervisorctl stop all'
+                            sh 'tar -C /var/lib/docker/ -czf /var/cache/docker/docker.tar.gz .'
+                        }
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+        failure {
+            emailext(
+                    to: "gissily@outlook.com",
+                    subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${env.currentResult}!",
+                    body: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${currentBuild.currentResult}. \n\nCheck console output at ${env.BUILD_URL} to view the results."
+            )
+        }
+    }
+}
