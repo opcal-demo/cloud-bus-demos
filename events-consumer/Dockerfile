@@ -2,7 +2,7 @@ FROM ghcr.io/opcal/eclipse-temurin:17-jre
 
 WORKDIR /app
 
-COPY /tmp/artifact/events-consumer.jar /app
+COPY ./target/events-consumer.jar /app
 
 EXPOSE 8080
 

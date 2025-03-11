@@ -1,2 +1,15 @@
 server:
   port: 19091
+  
+spring:
+  docker:
+    compose:
+      start:
+        arguments:
+        - '--force-recreate'
+      stop:
+        command: down
+      file:
+        - ../integration-compose.yml
+      skip:
+        in-tests: false
