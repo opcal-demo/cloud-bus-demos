@@ -1,6 +1,7 @@
 
 services:
   rabbitmq:
+    pull_policy: always
     image: rabbitmq:management
     ports:
       - 5672:5672

@@ -1,6 +1,7 @@
 
 services:
   rabbitmq:
+    pull_policy: always
     image: rabbitmq:management
     ports:
       - 5672:5672
@@ -14,6 +15,7 @@ services:
       timeout: 5s
       retries: 3
   producer:
+    pull_policy: always
     build: ./rabbitmq-bus-producer
     depends_on: 
       rabbitmq:
@@ -24,6 +26,7 @@ services:
     environment:
       RABBITMQ_URL: "rabbitmq:5672"
   consumer:
+    pull_policy: always
     build: ./rabbitmq-bus-consumer
     depends_on: 
       rabbitmq:
