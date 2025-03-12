@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IntegrationEventsApplication {
+public class RabbitmqIntegrationEventsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IntegrationEventsApplication.class, args);
+		SpringApplication.run(RabbitmqIntegrationEventsApplication.class, args);
 	}
 
 }

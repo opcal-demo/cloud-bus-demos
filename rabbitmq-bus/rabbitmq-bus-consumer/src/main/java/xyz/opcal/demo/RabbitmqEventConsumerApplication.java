@@ -18,10 +18,10 @@ import xyz.opcal.demo.event.TestEvent;
 @Import(EventsConfiguration.class)
 @SpringBootApplication
 @RestController
-public class EventConsumerApplication {
+public class RabbitmqEventConsumerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EventConsumerApplication.class, args);
+		SpringApplication.run(RabbitmqEventConsumerApplication.class, args);
 	}
 
 	private ObjectMapper objectMapper = new ObjectMapper();

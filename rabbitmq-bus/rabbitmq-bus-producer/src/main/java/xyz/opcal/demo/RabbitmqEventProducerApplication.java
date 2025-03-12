@@ -18,10 +18,10 @@ import xyz.opcal.demo.event.TestEvent;
 @Import(EventsConfiguration.class)
 @SpringBootApplication
 @RestController
-public class EventProducerApplication implements CommandLineRunner {
+public class RabbitmqEventProducerApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EventProducerApplication.class, args);
+		SpringApplication.run(RabbitmqEventProducerApplication.class, args);
 	}
 
 	private @Autowired BusProperties busProperties;

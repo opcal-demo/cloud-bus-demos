@@ -10,7 +10,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-class EventProducerApplicationTest {
+class RabbitmqEventProducerApplicationTest {
 
 	@Autowired
 	TestRestTemplate restTemplate;

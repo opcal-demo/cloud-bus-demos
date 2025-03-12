@@ -19,7 +19,7 @@ import xyz.opcal.demo.event.TestEvent;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @TestInstance(Lifecycle.PER_CLASS)
-class EventConsumerApplicationTest {
+class RabbitmqEventConsumerApplicationTest {
 
 	@Autowired
 	TestRestTemplate restTemplate;
