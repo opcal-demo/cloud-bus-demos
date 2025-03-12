@@ -1,0 +1,28 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+    name: @artifactId@
+  cloud:
+    bus:
+      id: ${spring.application.name}:${spring.profiles.active}:${random.value}
+      trace:
+        enabled: true
+  kafka:
+    bootstrap-servers: ${KAFKA_SERVER:127.0.0.1:9092}
+    producer:
+      properties:
+        spring.json.add.type.headers: false
+    consumer:
+      properties:
+        spring.json.trusted.packages: "*"
+  docker:
+    compose:
+      stop:
+        command: down
+      file:
+        - ../kafka-compose.yml
+      skip:
+        in-tests: false

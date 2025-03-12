@@ -18,6 +18,7 @@
 	<modules>
 		<module>events-api</module>
 		<module>rabbitmq-bus</module>
+		<module>kafka-bus</module>
 	</modules>
 
 	<repositories>

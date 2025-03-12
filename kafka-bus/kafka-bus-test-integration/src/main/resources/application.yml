@@ -1,0 +1,12 @@
+server:
+  port: 19091
+  
+spring:
+  docker:
+    compose:
+      stop:
+        command: down
+      file:
+        - ../integration-compose.yml
+      skip:
+        in-tests: false
