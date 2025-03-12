@@ -14,7 +14,7 @@ services:
       timeout: 5s
       retries: 3
   producer:
-    build: ./events-producer
+    build: ./rabbitmq-bus-producer
     depends_on: 
       rabbitmq:
         condition: service_healthy
@@ -24,7 +24,7 @@ services:
     environment:
       RABBITMQ_URL: "rabbitmq:5672"
   consumer:
-    build: ./events-consumer
+    build: ./rabbitmq-bus-consumer
     depends_on: 
       rabbitmq:
         condition: service_healthy

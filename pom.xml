@@ -17,9 +17,7 @@
 
 	<modules>
 		<module>events-api</module>
-		<module>events-producer</module>
-		<module>events-consumer</module>
-		<module>events-testcontainers-integration</module>
+		<module>rabbitmq-bus</module>
 	</modules>
 
 	<repositories>
