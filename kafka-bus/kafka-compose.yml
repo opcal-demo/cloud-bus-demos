@@ -2,15 +2,15 @@
 services:
   kafka:
     pull_policy: always
-    image: ghcr.io/opcal/kafka:2.13-3.9
+    image: ghcr.io/opcal/kafka:2.13-4.0
     environment:
       KAFKA_CLUSTER_ID: AxUfivavQVGuQH2l4yfxCA
     entrypoint:
       - bash
       - -ec
       - | 
-        kafka-storage.sh format --standalone -t $${KAFKA_CLUSTER_ID} -c /opt/kafka/config/kraft/reconfig-server.properties
-        kafka-server-start.sh /opt/kafka/config/kraft/reconfig-server.properties
+        kafka-storage.sh format --standalone -t $${KAFKA_CLUSTER_ID} -c /opt/kafka/config/server.properties
+        kafka-server-start.sh /opt/kafka/config/server.properties
     ports:
       - 9092:9092
       - 9093:9093
