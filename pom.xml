@@ -37,6 +37,13 @@
 			</snapshots>
 		</repository>
 		<repository>
+            <id>s01-sonatype-snapshots</id>
+            <url>https://s01.oss.sonatype.org/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+		<repository>
 			<id>spring-snapshots</id>
 			<name>Spring Snapshots</name>
 			<url>https://repo.spring.io/snapshot</url>
@@ -51,10 +58,6 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-		</repository>
-		<repository>
-			<id>opcal-sonatype-public</id>
-			<url>https://s01.oss.sonatype.org/content/groups/public/</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
