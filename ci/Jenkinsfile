@@ -47,6 +47,8 @@ pipeline {
                             sh 'docker container prune -f'
                             sh 'docker image prune -f'
                             sh 'docker volume prune -f'
+                            sh 'docker buildx prune -f'
+                            sh 'docker system df'
                             sh 'supervisorctl stop all'
                             sh 'tar -C /var/lib/docker/ -czf /var/cache/docker/docker.tar.gz .'
                         }
