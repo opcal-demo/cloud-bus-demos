@@ -44,7 +44,9 @@ pipeline {
                             sh 'ls /var/run/docker.sock'
                             sh 'docker ps'
                             sh './mvnw -U clean package'
+                            sh 'docker container prune -f'
                             sh 'docker image prune -f'
+                            sh 'docker volume prune -f'
                             sh 'supervisorctl stop all'
                             sh 'tar -C /var/lib/docker/ -czf /var/cache/docker/docker.tar.gz .'
                         }
