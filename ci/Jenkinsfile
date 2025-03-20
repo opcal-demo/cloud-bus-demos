@@ -27,7 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 cache(caches: [
-                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/root/.m2'),
+                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: 'settings.xml', includes: '**/*', path: '/root/.m2'),
                         arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/var/cache/docker')
                 ],
                         defaultBranch: 'main',
