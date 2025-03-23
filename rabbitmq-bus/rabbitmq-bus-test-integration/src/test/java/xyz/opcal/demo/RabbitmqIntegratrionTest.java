@@ -22,9 +22,12 @@ class RabbitmqIntegratrionTest {
 	TestRestTemplate restTemplate;
 
 	@Test
-	void test() {
+	void test() throws InterruptedException {
+		Thread.sleep(5000);
 		var response = restTemplate.postForEntity(produceUrl, null, String.class);
 		System.out.println(response.getBody());
+		
+		Thread.sleep(5000);
 		var consumeStatus = restTemplate.getForObject(consumeUrl, Boolean.class);
 		assertTrue(consumeStatus);
 	}
