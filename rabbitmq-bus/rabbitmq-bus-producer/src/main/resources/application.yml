@@ -17,7 +17,7 @@ spring:
     virtual-host: /
   docker:
     compose:
-			start:
+      start:
         arguments:
           - --pull=${PULL_POLICY:missing}
       stop:

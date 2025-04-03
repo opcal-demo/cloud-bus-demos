@@ -6,8 +6,8 @@ spring:
     compose:
       start:
         arguments:
-					- --pull=${PULL_POLICY:missing}
-					- --build
+          - --pull=${PULL_POLICY:missing}
+          - --build
       stop:
         command: down
       file:
