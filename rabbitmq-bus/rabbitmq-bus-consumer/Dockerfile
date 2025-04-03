@@ -1,4 +1,4 @@
-FROM ghcr.io/opcal/eclipse-temurin:17-jre
+FROM ghcr.io/opcal/eclipse-temurin:21-jre
 
 WORKDIR /app
 
