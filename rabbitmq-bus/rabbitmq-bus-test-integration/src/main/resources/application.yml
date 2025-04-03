@@ -6,7 +6,8 @@ spring:
     compose:
       start:
         arguments:
-        - '--force-recreate'
+					- --pull=${PULL_POLICY:missing}
+					- --build
       stop:
         command: down
       file:

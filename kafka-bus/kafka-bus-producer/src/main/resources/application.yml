@@ -20,6 +20,9 @@ spring:
         spring.json.trusted.packages: "*"
   docker:
     compose:
+			start:
+			  arguments:
+			    - --pull=${PULL_POLICY:missing}
       stop:
         command: down
       file:

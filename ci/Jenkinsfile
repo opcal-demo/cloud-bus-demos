@@ -2,8 +2,16 @@ pipeline {
     agent {
         kubernetes {
             cloud 'kubernetes'
-            inheritFrom 'dind-jdk-17-build'
+            inheritFrom 'dind-jdk-21-build-nfs-cache'
         }
+    }
+    
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
+
+    parameters {
+        choice choices: ['missing', 'always'], name: 'PULL_POLICY'
     }
 
     stages {
@@ -27,12 +35,11 @@ pipeline {
         stage('Test') {
             steps {
                 cache(caches: [
-                        arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: 'settings.xml', includes: '**/*', path: '/root/.m2'),
                         arbitraryFileCache(cacheName: '', cacheValidityDecidingFile: '', compressionMethod: 'TARGZ_BEST_SPEED', excludes: '', includes: '**/*', path: '/var/cache/docker')
                 ],
                         defaultBranch: 'main',
                         maxCacheSize: 0) {
-                    container("dind-jdk-17") {
+                    container("dind-jdk-21") {
                         script {
                             sh '''
                                 if [ -f /var/cache/docker/docker.tar.gz ]; then
