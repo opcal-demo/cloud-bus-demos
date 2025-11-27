@@ -18,11 +18,17 @@ pipeline {
         stage('Validation') {
             steps {
                 script {
-//                    sh 'printenv'
-                    skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
+                    def manual = false
+                    def causes = currentBuild.getBuildCauses()
+                    for(cause in causes) {
+                        if (cause.shortDescription.toString().contains("Started by user")) {
+                            manual = true
+                        }
+                    }
+                    def skipCi = sh (script: "git log -1 --pretty=%B | grep '\\[skip ci\\]'", returnStatus: true)
                     echo "${skipCi}"
                     echo "${env.TAG_NAME}"
-                    if (skipCi == 0 && env.TAG_NAME == null) {
+                    if (manual == false && skipCi == 0 && env.TAG_NAME == null) {
                         echo "Skipping this pipeline by commit message mark!"
                         currentBuild.result = "ABORTED"
                         throw new org.jenkinsci.plugins.workflow.steps.FlowInterruptedException(hudson.model.Result.ABORTED)

@@ -9,9 +9,8 @@ import org.springframework.context.event.EventListener;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import lombok.SneakyThrows;
+import tools.jackson.databind.ObjectMapper;
 import xyz.opcal.demo.configuration.EventsConfiguration;
 import xyz.opcal.demo.event.TestEvent;
 
