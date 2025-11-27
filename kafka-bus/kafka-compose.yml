@@ -1,8 +1,7 @@
 
 services:
   kafka:
-    pull_policy: always
-    image: ghcr.io/opcal/kafka:2.13-4.0
+    image: ghcr.io/opcal/kafka:4.1
     environment:
       KAFKA_CLUSTER_ID: AxUfivavQVGuQH2l4yfxCA
     entrypoint:
