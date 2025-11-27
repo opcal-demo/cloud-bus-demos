@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             cloud 'kubernetes'
-            inheritFrom 'dind-jdk-21-build-nfs-cache'
+            inheritFrom 'dind-jdk-25-build-nfs-cache'
         }
     }
     
@@ -45,7 +45,7 @@ pipeline {
                 ],
                         defaultBranch: 'main',
                         maxCacheSize: 0) {
-                    container("dind-jdk-21") {
+                    container("dind-jdk-25") {
                         script {
                             sh '''
                                 if [ -f /var/cache/docker/docker.tar.gz ]; then
