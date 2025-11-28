@@ -56,7 +56,7 @@ pipeline {
                             sh 'start-docker.sh'
                             sh 'ls /var/run/docker.sock'
                             sh 'docker ps'
-                            sh './mvnw -U clean package'
+                            sh './mvnw -U clean verify'
                             sh 'docker container prune -f'
                             sh 'docker image prune -f'
                             sh 'docker volume prune -f'
