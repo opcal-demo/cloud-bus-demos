@@ -75,6 +75,10 @@ pipeline {
             cleanWs()
         }
         failure {
+            explainError(
+                    maxLines: 10000,
+                    logPattern: '(?i)(error|failed|exception)'
+            )
             emailext(
                     to: "gissily@outlook.com",
                     subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - ${currentBuild.currentResult}!",
