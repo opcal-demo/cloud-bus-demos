@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>xyz.opcal.demo</groupId>
 		<artifactId>rabbitmq-bus</artifactId>
-		<version>1.0.34-SNAPSHOT</version>
+		<version>1.0.35-SNAPSHOT</version>
 	</parent>
 	<artifactId>rabbitmq-bus-producer</artifactId>
 
@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>xyz.opcal.demo</groupId>
 			<artifactId>events-api</artifactId>
-			<version>1.0.34-SNAPSHOT</version>
+			<version>1.0.35-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>xyz.opcal.demo</groupId>
 		<artifactId>kafka-bus</artifactId>
-		<version>1.0.34-SNAPSHOT</version>
+		<version>1.0.35-SNAPSHOT</version>
 	</parent>
 	<artifactId>kafka-bus-test-integration</artifactId>
 
